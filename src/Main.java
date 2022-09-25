@@ -10,6 +10,8 @@ public class Main {
         System.out.println(car4);
         Car car5 = new Car("Hyundai","Avante",1.6,"оранжевый",2016,"Южная Корея");
         System.out.println(car5);
+        Car car6 = new Car("",null,0,null,0,"");
+        System.out.println(car6);
 
     }
 }
