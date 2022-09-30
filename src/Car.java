@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Car {
     private final String brand;
     private final String model;
@@ -42,10 +44,10 @@ public class Car {
         } else {
             this.tipKuzova = tipKuzova;
         }
-this.nomerAuto="х000хх000";
-        this.color="белый";
-        this.engineVolume=2.0;
-        this.kpp="мкпп";
+        this.nomerAuto = "х000хх000";
+        this.color = "белый";
+        this.engineVolume = 2.0;
+        this.kpp = "мкпп";
     }
 
 
@@ -168,4 +170,67 @@ this.nomerAuto="х000хх000";
                 ", isWinter=" + isWinter +
                 '}';
     }
+
+    class Key {
+        private final String autoStart;
+        private final String keyless;
+
+        public Key(String autoStart, String keyless) {
+            if (autoStart == null || "".equals(autoStart)) {
+                this.autoStart = "default";
+            } else {
+                this.autoStart = autoStart;
+            }
+            if (keyless == null || "".equals(keyless)) {
+                this.keyless = "default";
+            } else {
+                this.keyless = keyless;
+            }
+        }
+    }
+
+    class insurance {
+        private final LocalDate validUntil;
+        private final double cost;
+        private final String number;
+
+        public insurance(LocalDate validUntil, double cost, String number) {
+            if (validUntil == null) {
+                this.validUntil = LocalDate.now();
+            } else {
+                this.validUntil = validUntil;
+            }
+
+            if (cost <= 0) {
+                this.cost = 1;
+            } else {
+                this.cost = cost;
+            }
+            if (number == null || "".equals(number)) {
+                this.number = "default";
+            } else {
+                this.number = number;
+            }
+        }
+
+        boolean isInsuranceValid() {
+            if (this.validUntil.isAfter(LocalDate.now())) {
+                return true;
+            } else {
+                System.out.println("Срочно оформляйте новую страховку!");
+                return false;
+            }
+        }
+
+        boolean isNumberValid() {
+            if (this.number.length() == 9) {
+                return true;
+            } else {
+                System.out.println("Номер страховки некорректный!");
+                return false;
+            }
+        }
+    }
 }
+
+
