@@ -1,12 +1,11 @@
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
+
     private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
+
+    private String statusRefill;
+
     private String kpp;
     private final String tipKuzova;
     private String nomerAuto;
@@ -14,50 +13,21 @@ public class Car {
     private boolean isWinter;
 
     public Car(String brand, String model, int productionYear, String productionCountry, String tipKuzova, int mesta) {
-        if (brand == null || "".equals(brand)) {
-            this.brand = "default";
-        } else {
-            this.brand = brand;
-        }
-        if (model == null || "".equals(model)) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
-        if (productionYear == 0) {
-            this.productionYear = 2000;
-        } else {
-            this.productionYear = productionYear;
-        }
-        if (productionCountry == null || "".equals(productionCountry)) {
-            this.productionCountry = "default";
-        } else {
-            this.productionCountry = productionCountry;
-        }
+        super(brand, model, productionYear, productionCountry);
         if (mesta == 2 || mesta == 5 || mesta == 7) {
             this.mesta = mesta;
         } else {
             this.mesta = 2;
         }
-        if (tipKuzova == null || "".equals(tipKuzova)) {
+        if (isEmptyString(tipKuzova)) {
             this.tipKuzova = "default";
         } else {
             this.tipKuzova = tipKuzova;
         }
         this.nomerAuto = "х000хх000";
-        this.color = "белый";
         this.engineVolume = 2.0;
         this.kpp = "мкпп";
-    }
-
-
-    public String getBrand() {
-        return brand;
-    }
-
-
-    public String getModel() {
-        return model;
+        this.statusRefill="не заправлен";
     }
 
 
@@ -69,26 +39,6 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || "".equals(color)) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
 
     public String getKpp() {
         return kpp;
@@ -111,7 +61,7 @@ public class Car {
     }
 
     public void setKpp(String kpp) {
-        if (kpp == null || "".equals(kpp)) {
+        if (isEmptyString(kpp)) {
             this.kpp = "default";
         } else {
             this.kpp = kpp;
@@ -119,7 +69,7 @@ public class Car {
     }
 
     public void setNomerAuto(String nomerAuto) {
-        if (nomerAuto == null || "".equals(nomerAuto) || !checkNomerAuto(nomerAuto)) {
+        if (isEmptyString(nomerAuto) || !checkNomerAuto(nomerAuto)) {
             this.nomerAuto = "х000хх000";
         } else {
             this.nomerAuto = nomerAuto;
@@ -155,20 +105,29 @@ public class Car {
     }
 
     @Override
+    public void refill(Boolean gasoline, Boolean diesel, Boolean electro) {
+        if (gasoline || diesel || electro) {
+            this.statusRefill = "заправлен";
+        } else {
+            this.statusRefill = "не заправлен";
+        }
+    }
+
+    @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
                 ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
+                ", color='" + getColor() + '\'' +
+                ", productionYear=" + getProductionYear() +
+                ", productionCountry='" + getProductionCountry() + '\'' +
                 ", kpp='" + kpp + '\'' +
                 ", tipKuzova='" + tipKuzova + '\'' +
                 ", nomerAuto='" + nomerAuto + '\'' +
                 ", mesta=" + mesta +
                 ", isWinter=" + isWinter +
-                '}';
+                "} " + statusRefill;
     }
 
     class Key {
@@ -176,12 +135,12 @@ public class Car {
         private final String keyless;
 
         public Key(String autoStart, String keyless) {
-            if (autoStart == null || "".equals(autoStart)) {
+            if (isEmptyString(autoStart)) {
                 this.autoStart = "default";
             } else {
                 this.autoStart = autoStart;
             }
-            if (keyless == null || "".equals(keyless)) {
+            if (isEmptyString(keyless)) {
                 this.keyless = "default";
             } else {
                 this.keyless = keyless;
@@ -206,7 +165,7 @@ public class Car {
             } else {
                 this.cost = cost;
             }
-            if (number == null || "".equals(number)) {
+            if (isEmptyString(number)) {
                 this.number = "default";
             } else {
                 this.number = number;

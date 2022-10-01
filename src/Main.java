@@ -3,14 +3,36 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("Lada", "Grande", 2015, "Россия", "седан", 5);
-        car1.setColor("желтый цвет");
-        car1.setNomerAuto("в161аа799");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate date = LocalDate.parse("29-09-2022", formatter);
-        Car.insurance insurance = car1.new insurance(date, 5.500, "123456789");
-        insurance.isInsuranceValid();
-        test1();
+        Train train1 = new Train("Ласточка", "B-901", 2011, "Россия");
+        train1.setMaxSpeed(301);
+        train1.setStartStation("Белорусский вокзал");
+        train1.setEndStation("Минск-Пассажирский");
+        train1.setTicketPrice(3500);
+        train1.setWagonCount(11);
+        train1.refill(null,true,null);
+        System.out.println(train1);
+        Train train2 = new Train("Ленинград", "D-125", 2019, "Россия");
+        train2.setMaxSpeed(270);
+        train2.setStartStation("Ленинградский вокзал");
+        train2.setEndStation("Ленинград-Пассажирский");
+        train2.setTicketPrice(1700);
+        train2.setWagonCount(8);
+        System.out.println(train2);
+        Bus bus1 = new Bus("Икарус", "И-1000", 2000, "Россия");
+        bus1.setColor("Синий");
+        bus1.setMaxSpeed(120);
+        bus1.refill(false,true,null);
+        System.out.println(bus1);
+        Bus bus2 = new Bus("Лиаз", "Л-10", 1990, "Россия");
+        bus2.setColor("Желтый");
+        bus2.setMaxSpeed(90);
+        System.out.println(bus2);
+        Bus bus3 = new Bus("Паз", "П-30", 1980, "Россия");
+        bus3.setColor("Белый");
+        bus3.setMaxSpeed(100);
+        System.out.println(bus3);
+
+
     }
 
     private static void test1() {
