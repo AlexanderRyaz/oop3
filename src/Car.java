@@ -140,15 +140,15 @@ public class Car {
         if (nomerAuto.length() != 9) {
             return false;
         }
-        if (!Character.isAlphabetic(nomerAuto.charAt(0)) && !Character.isAlphabetic(nomerAuto.charAt(4)) && !Character.isAlphabetic(nomerAuto.charAt(5))) {
+        if (!Character.isAlphabetic(nomerAuto.charAt(0)) || !Character.isAlphabetic(nomerAuto.charAt(4)) || !Character.isAlphabetic(nomerAuto.charAt(5))) {
             return false;
         }
         if (!Character.isDigit(nomerAuto.charAt(1))
-                && !Character.isDigit(nomerAuto.charAt(2))
-                && !Character.isDigit(nomerAuto.charAt(3))
-                && !Character.isDigit(nomerAuto.charAt(6))
-                && !Character.isDigit(nomerAuto.charAt(7))
-                && !Character.isDigit(nomerAuto.charAt(8))) {
+                || !Character.isDigit(nomerAuto.charAt(2))
+                || !Character.isDigit(nomerAuto.charAt(3))
+                || !Character.isDigit(nomerAuto.charAt(6))
+                || !Character.isDigit(nomerAuto.charAt(7))
+                || !Character.isDigit(nomerAuto.charAt(8))) {
             return false;
         }
         return true;
