@@ -1,6 +1,10 @@
 import java.time.LocalDate;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Car extends Transport {
+import static java.lang.Math.round;
+
+public class Car extends Transport implements Competing {
 
 
 
@@ -52,6 +56,23 @@ public class Car extends Transport {
                 ", model='" + getModel() + '\'' +
                 ", engineVolume='" + getEngineVolume() + '\'' +
                 "} ";
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("легковой автомобиль заправлен ипоменяли резину");
+    }
+
+    @Override
+    public String bestTime() {
+        int minutes = ThreadLocalRandom.current().nextInt(0,  5);
+        int seconds = ThreadLocalRandom.current().nextInt(0,  60);
+        return "Минуты: " + minutes + ", секунды: " + seconds;
+    }
+
+    @Override
+    public double maxSpeed() {
+        return round ( ThreadLocalRandom.current().nextDouble(180,  250));
     }
 
     class Key {
