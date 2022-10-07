@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Bus bus1 = new Bus("Икарус", "И-1000", 4.0);
@@ -84,6 +87,45 @@ public class Main {
         truck4.stopDrive();
         System.out.println(truck4.bestTime());
         System.out.println(truck4.maxSpeed());
+        Driver driver_d =new Driver_D("Николай Петров");
+        driver_d.setDriverLicense(true);
+        driver_d.setAuto(bus1);
+        driver_d.setDrivingExperience(10);
+        Driver driver_c =new Driver_C("Василий Иванов");
+        driver_c.setDriverLicense(true);
+        driver_c.setAuto(truck2);
+        driver_c.setDrivingExperience(15);
+        Driver driver_b=new Driver_B("Александр Рязанов");
+        driver_b.setDriverLicense(true);
+        driver_b.setAuto(car1);
+        driver_b.setDrivingExperience(20);
+        Driver driver_d1 =new Driver_D("Сергей Сидоров");
+        driver_d1.setDriverLicense(true);
+        driver_d1.setAuto(car2);
+        driver_d1.setDrivingExperience(8);
+        Driver driver_d2 =new Driver_D("Константин Сергеев");
+        driver_d2.setDriverLicense(false);
+        driver_d2.setAuto(bus1);
+        driver_d2.setDrivingExperience(1);
+        List<Driver>driverList=new ArrayList<>();
+        driverList.add(driver_b);
+        driverList.add(driver_c);
+        driverList.add(driver_d);
+        driverList.add(driver_d1);
+        driverList.add(driver_d2);
+        printRaceInfo(driverList);
+    }
+
+    private static void printRaceInfo(List<Driver> driverList) {
+        for (Driver driver : driverList) {
+            if (driver.getAuto() != null) {
+                System.out.println("водитель " + driver.getName() + " управляет автомобилем " + driver.getAuto() + "" +
+                        " и будет участвовать в заезде");
+            }else {
+                System.out.println("водитель " + driver.getName() +
+                        " не будет участвовать в заезде");
+            }
+        }
     }
 
 }
