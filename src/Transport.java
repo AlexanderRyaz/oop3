@@ -2,12 +2,11 @@ public abstract class Transport {
 
     private final String brand;
     private final String model;
-    private final int productionYear;
-    private final String productionCountry;
-    private String color;
-    private double maxSpeed;
 
-    public Transport(String brand, String model, int productionYear, String productionCountry) {
+    private final double engineVolume;
+
+
+    public Transport(String brand, String model, double engineVolume) {
         if (isEmptyString(brand)) {
             this.brand = "default";
         } else {
@@ -18,16 +17,15 @@ public abstract class Transport {
         } else {
             this.model = model;
         }
-        if (productionYear == 0) {
-            this.productionYear = 2000;
+        if (engineVolume < 0) {
+            this.engineVolume = 2.0;
         } else {
-            this.productionYear = productionYear;
+            this.engineVolume = engineVolume;
         }
-        if (isEmptyString(productionCountry)) {
-            this.productionCountry = "default";
-        } else {
-            this.productionCountry = productionCountry;
-        }
+    }
+
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
     public String getBrand() {
@@ -38,43 +36,15 @@ public abstract class Transport {
         return model;
     }
 
-    public int getProductionYear() {
-        return productionYear;
-    }
 
-    public String getProductionCountry() {
-        return productionCountry;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setColor(String color) {
-        if (color == null || "".equals(color)) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
-    }
-
-    public void setMaxSpeed(double maxSpeed) {
-        if (maxSpeed <= 0) {
-            this.maxSpeed = 10;
-        } else {
-            this.maxSpeed = maxSpeed;
-        }
-    }
 
     public boolean isEmptyString(String s) {
         return s == null || "".equals(s);
     }
-    public abstract void refill(Boolean gasoline, Boolean diesel, Boolean electro);
 
+    public abstract void startDrive();
+
+    public abstract void stopDrive();
 
 
     @Override
@@ -82,10 +52,6 @@ public abstract class Transport {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
-                ", color='" + color + '\'' +
-                ", maxSpeed=" + maxSpeed +
                 '}';
     }
 }

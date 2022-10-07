@@ -2,88 +2,17 @@ import java.time.LocalDate;
 
 public class Car extends Transport {
 
-    private double engineVolume;
+
 
     private String statusRefill;
 
     private String kpp;
-    private final String tipKuzova;
-    private String nomerAuto;
-    private final int mesta;
-    private boolean isWinter;
 
-    public Car(String brand, String model, int productionYear, String productionCountry, String tipKuzova, int mesta) {
-        super(brand, model, productionYear, productionCountry);
-        if (mesta == 2 || mesta == 5 || mesta == 7) {
-            this.mesta = mesta;
-        } else {
-            this.mesta = 2;
-        }
-        if (isEmptyString(tipKuzova)) {
-            this.tipKuzova = "default";
-        } else {
-            this.tipKuzova = tipKuzova;
-        }
-        this.nomerAuto = "х000хх000";
-        this.engineVolume = 2.0;
-        this.kpp = "мкпп";
-        this.statusRefill="не заправлен";
+    public Car(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
     }
 
 
-    public double getEngineVolume() {
-        return engineVolume;
-    }
-
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
-
-
-    public String getKpp() {
-        return kpp;
-    }
-
-    public String getTipKuzova() {
-        return tipKuzova;
-    }
-
-    public String getNomerAuto() {
-        return nomerAuto;
-    }
-
-    public int getMesta() {
-        return mesta;
-    }
-
-    public boolean isWinter() {
-        return isWinter;
-    }
-
-    public void setKpp(String kpp) {
-        if (isEmptyString(kpp)) {
-            this.kpp = "default";
-        } else {
-            this.kpp = kpp;
-        }
-    }
-
-    public void setNomerAuto(String nomerAuto) {
-        if (isEmptyString(nomerAuto) || !checkNomerAuto(nomerAuto)) {
-            this.nomerAuto = "х000хх000";
-        } else {
-            this.nomerAuto = nomerAuto;
-        }
-
-    }
-
-    public void setWinter(boolean winter) {
-        isWinter = winter;
-    }
-
-    public void changeSeason() {
-        this.isWinter = !this.isWinter;
-    }
 
     public boolean checkNomerAuto(String nomerAuto) {
         char[] chars = nomerAuto.toCharArray();
@@ -104,13 +33,16 @@ public class Car extends Transport {
         return true;
     }
 
+
+
     @Override
-    public void refill(Boolean gasoline, Boolean diesel, Boolean electro) {
-        if (gasoline || diesel || electro) {
-            this.statusRefill = "заправлен";
-        } else {
-            this.statusRefill = "не заправлен";
-        }
+    public void startDrive() {
+        System.out.println("легковой автомобиль начал движение");
+    }
+
+    @Override
+    public void stopDrive() {
+        System.out.println("легковой автомобиль закончил движение");
     }
 
     @Override
@@ -118,16 +50,8 @@ public class Car extends Transport {
         return "Car{" +
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + getColor() + '\'' +
-                ", productionYear=" + getProductionYear() +
-                ", productionCountry='" + getProductionCountry() + '\'' +
-                ", kpp='" + kpp + '\'' +
-                ", tipKuzova='" + tipKuzova + '\'' +
-                ", nomerAuto='" + nomerAuto + '\'' +
-                ", mesta=" + mesta +
-                ", isWinter=" + isWinter +
-                "} " + statusRefill;
+                ", engineVolume='" + getEngineVolume() + '\'' +
+                "} ";
     }
 
     class Key {

@@ -1,4 +1,4 @@
-public class Train extends Transport {
+public class Train {
     private double ticketPrice;
     private double travelTime;
     private String startStation;
@@ -7,7 +7,7 @@ public class Train extends Transport {
     private String statusRefill;
 
     public Train(String brand, String model, int productionYear, String productionCountry) {
-        super(brand, model, productionYear, productionCountry);
+//        super(brand, model, productionYear, productionCountry);
         this.statusRefill = "не заправлен";
     }
 
@@ -39,25 +39,25 @@ public class Train extends Transport {
         return startStation;
     }
 
-    public void setStartStation(String startStation) {
-        if (isEmptyString(startStation)) {
-            startStation = "default";
-        } else
-            this.startStation = startStation;
-    }
-
-
-    public String getEndStation() {
-        return endStation;
-    }
-
-    public void setEndStation(String endStation) {
-        if (isEmptyString(endStation)) {
-            this.endStation = "default";
-        } else {
-            this.endStation = endStation;
-        }
-    }
+//    public void setStartStation(String startStation) {
+//        if (isEmptyString(startStation)) {
+//            startStation = "default";
+//        } else
+//            this.startStation = startStation;
+//    }
+//
+//
+//    public String getEndStation() {
+//        return endStation;
+//    }
+//
+//    public void setEndStation(String endStation) {
+//        if (isEmptyString(endStation)) {
+//            this.endStation = "default";
+//        } else {
+//            this.endStation = endStation;
+//        }
+//    }
 
     public int getWagonCount() {
         return wagonCount;
@@ -70,23 +70,23 @@ public class Train extends Transport {
             this.wagonCount = wagonCount;
         }
     }
-    @Override
-    public void refill(Boolean gasoline, Boolean diesel, Boolean electro) {
-        if (diesel) {
-            this.statusRefill = "заправлен";
-        } else {
-            this.statusRefill = "не заправлен";
-        }
-    }
+////    @Override
+////    public void refill(Boolean gasoline, Boolean diesel, Boolean electro) {
+////        if (diesel) {
+////            this.statusRefill = "заправлен";
+////        } else {
+////            this.statusRefill = "не заправлен";
+////        }
+//    }
 
     @Override
     public String toString() {
         return "Train{" +
-                "brand='" + getBrand() + '\'' +
-                ", model='" + getModel() + '\'' +
-                ", productionYear=" + getProductionYear() +
-                ", productionCountry='" + getProductionCountry() + '\'' +
-                ", maxSpeed=" + getMaxSpeed() + " " +
+//                "brand='" + getBrand() + '\'' +
+//                ", model='" + getModel() + '\'' +
+//                ", productionYear=" + getProductionYear() +
+//                ", productionCountry='" + getProductionCountry() + '\'' +
+//                ", maxSpeed=" + getMaxSpeed() + " " +
                 "ticketPrice=" + ticketPrice +
                 ", travelTime=" + travelTime +
                 ", startStation='" + startStation + '\'' +
