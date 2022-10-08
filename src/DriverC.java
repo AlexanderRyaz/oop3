@@ -1,5 +1,5 @@
-public class Driver_C extends Driver<Truck> {
-    public Driver_C(String name) {
+public class DriverC extends Driver<Truck> {
+    public DriverC(String name) {
         super(name);
     }
 
