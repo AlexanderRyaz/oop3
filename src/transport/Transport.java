@@ -1,3 +1,5 @@
+package transport;
+
 public abstract class Transport {
 
     private final String brand;
@@ -49,7 +51,7 @@ public abstract class Transport {
 
     @Override
     public String toString() {
-        return "Transport{" +
+        return "transport.Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 '}';

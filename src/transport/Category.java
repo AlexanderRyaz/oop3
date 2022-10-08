@@ -1,3 +1,5 @@
+package transport;
+
 public enum Category {
     SEDAN("седан"),
     HATCHBACK("хетчбек"),

@@ -1,5 +1,6 @@
+package transport;
+
 import java.time.LocalDate;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.round;
@@ -56,7 +57,7 @@ public class Car extends Transport implements Competing {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "transport.Car{" +
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
                 ", engineVolume='" + getEngineVolume() + '\'' +

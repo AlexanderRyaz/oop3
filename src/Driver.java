@@ -1,3 +1,5 @@
+import transport.Transport;
+
 public  class Driver<T extends Transport> {
     private final String name;
     private boolean driverLicense;

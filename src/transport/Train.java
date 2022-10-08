@@ -1,3 +1,5 @@
+package transport;
+
 public class Train {
     private double ticketPrice;
     private double travelTime;
@@ -81,7 +83,7 @@ public class Train {
 
     @Override
     public String toString() {
-        return "Train{" +
+        return "transport.Train{" +
 //                "brand='" + getBrand() + '\'' +
 //                ", model='" + getModel() + '\'' +
 //                ", productionYear=" + getProductionYear() +

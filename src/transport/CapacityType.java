@@ -1,3 +1,5 @@
+package transport;
+
 public enum CapacityType {
     ESPECIALLY_SMALL("до 10 мест"),
     SMALL("до 25 мест"),
