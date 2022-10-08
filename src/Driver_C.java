@@ -1,26 +1,28 @@
-public class Driver_C extends Driver{
+public class Driver_C extends Driver<Truck> {
     public Driver_C(String name) {
         super(name);
     }
 
     @Override
     public void startDrive() {
-        System.out.println("водитель категории Ц начал движение");
+        System.out.print("водитель категории Ц");
+        super.startDrive();
     }
 
     @Override
     public void stopDrive() {
-        System.out.println("водитель категории Ц начал движение");
+        System.out.print("водитель категории Ц");
+        super.stopDrive();
     }
 
     @Override
     public void refuelCar() {
-        System.out.println("водитель категории Ц запрвил автомобиль");
+        System.out.print("водитель категории Ц");
+        super.refuelCar();
     }
+
     @Override
-    public void setAuto(Transport auto){
-        if (auto instanceof Truck){
-            super.setAuto(auto);
-        }
+    public void setAuto(Truck auto) {
+        super.setAuto(auto);
     }
 }

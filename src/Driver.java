@@ -1,8 +1,8 @@
-public abstract class Driver {
+public  class Driver<T extends Transport> {
     private final String name;
     private boolean driverLicense;
     private int drivingExperience;
-    private Transport auto;
+    private T auto;
 
     public Driver(String name) {
         if (name == null) {
@@ -16,7 +16,7 @@ public abstract class Driver {
         return name;
     }
 
-    public Transport getAuto() {
+    public T getAuto() {
         return auto;
     }
 
@@ -32,7 +32,7 @@ public abstract class Driver {
         this.driverLicense = driverLicense;
     }
 
-    public void setAuto(Transport auto) {
+    public void setAuto(T auto) {
         if (driverLicense) {
             this.auto = auto;
         }
@@ -47,9 +47,15 @@ public abstract class Driver {
         }
     }
 
-    public abstract void startDrive();
+    public  void startDrive(){
+        System.out.println(" начал движение");
+    }
 
-    public abstract void stopDrive();
+    public  void stopDrive(){
+        System.out.println(" закончил движение");
+    }
 
-    public abstract void refuelCar();
+    public  void refuelCar(){
+        System.out.println(" заправил машину");
+    }
 }
