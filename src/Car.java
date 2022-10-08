@@ -7,16 +7,22 @@ import static java.lang.Math.round;
 public class Car extends Transport implements Competing {
 
 
-
     private String statusRefill;
 
     private String kpp;
+    private Category category;
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
 
+    public Category getCategory() {
+        return category;
+    }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public boolean checkNomerAuto(String nomerAuto) {
         char[] chars = nomerAuto.toCharArray();
@@ -38,7 +44,6 @@ public class Car extends Transport implements Competing {
     }
 
 
-
     @Override
     public void startDrive() {
         System.out.println("легковой автомобиль начал движение");
@@ -55,6 +60,7 @@ public class Car extends Transport implements Competing {
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
                 ", engineVolume='" + getEngineVolume() + '\'' +
+                ", category= " + (category == null ? "данных не достаточно" : category.getCategory()) +
                 "} ";
     }
 
@@ -65,14 +71,14 @@ public class Car extends Transport implements Competing {
 
     @Override
     public String bestTime() {
-        int minutes = ThreadLocalRandom.current().nextInt(0,  5);
-        int seconds = ThreadLocalRandom.current().nextInt(0,  60);
+        int minutes = ThreadLocalRandom.current().nextInt(0, 5);
+        int seconds = ThreadLocalRandom.current().nextInt(0, 60);
         return "Минуты: " + minutes + ", секунды: " + seconds;
     }
 
     @Override
     public double maxSpeed() {
-        return round ( ThreadLocalRandom.current().nextDouble(180,  250));
+        return round(ThreadLocalRandom.current().nextDouble(180, 250));
     }
 
     class Key {

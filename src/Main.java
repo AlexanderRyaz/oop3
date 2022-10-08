@@ -4,6 +4,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Bus bus1 = new Bus("Икарус", "И-1000", 4.0);
+        bus1.setCapacityType(CapacityType.AVERAGE);
         System.out.println(bus1);
         bus1.startDrive();
         bus1.pitStop();
@@ -11,6 +12,7 @@ public class Main {
         System.out.println(bus1.bestTime());
         System.out.println(bus1.maxSpeed());
         Bus bus2 = new Bus("Лиаз", "Л-10", 3.0);
+        bus2.setCapacityType(CapacityType.SMALL);
         System.out.println(bus2);
         bus2.startDrive();
         bus2.pitStop();
@@ -18,6 +20,7 @@ public class Main {
         System.out.println(bus2.bestTime());
         System.out.println(bus2.maxSpeed());
         Bus bus3 = new Bus("Паз", "П-30", 2.5);
+        bus3.setCapacityType(CapacityType.BIG);
         System.out.println(bus3);
         bus3.startDrive();
         bus3.pitStop();
@@ -32,6 +35,7 @@ public class Main {
         System.out.println(bus4.bestTime());
         System.out.println(bus4.maxSpeed());
         Car car1 = new Car("Lada", "Grande", 1.6);
+        car1.setCategory(Category.SEDAN);
         System.out.println(car1);
         car1.startDrive();
         car1.pitStop();
@@ -39,6 +43,7 @@ public class Main {
         System.out.println(car1.bestTime());
         System.out.println(car1.maxSpeed());
         Car car2 = new Car("Audi", "A8 50 L TDI quattro", 5.0);
+        car2.setCategory(Category.SEDAN);
         System.out.println(car2);
         car2.startDrive();
         car2.pitStop();
@@ -46,6 +51,7 @@ public class Main {
         System.out.println(car2.bestTime());
         System.out.println(car2.maxSpeed());
         Car car3 = new Car("BMW", "Z8", 3.0);
+        car3.setCategory(Category.COUPE);
         System.out.println(car3);
         car3.startDrive();
         car3.pitStop();
@@ -61,12 +67,14 @@ public class Main {
         System.out.println(car4.maxSpeed());
         Truck truck1 = new Truck("Камаз", "Т-500", 6.0);
         System.out.println(truck1);
+        truck1.setLoadType(LoadType.N3);
         truck1.startDrive();
         truck1.pitStop();
         truck1.stopDrive();
         System.out.println(truck1.bestTime());
         System.out.println(truck1.maxSpeed());
         Truck truck2 = new Truck("Зил", "З-125", 4.0);
+        truck2.setLoadType(LoadType.N2);
         System.out.println(truck2);
         truck2.startDrive();
         truck2.pitStop();
@@ -74,6 +82,7 @@ public class Main {
         System.out.println(truck2.bestTime());
         System.out.println(truck2.maxSpeed());
         Truck truck3 = new Truck("Краз", "К-3000", 9.0);
+        truck3.setLoadType(LoadType.N3);
         System.out.println(truck3);
         truck3.startDrive();
         truck3.pitStop();
