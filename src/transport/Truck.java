@@ -40,7 +40,10 @@ public class Truck extends Transport implements Competing {
         int seconds = ThreadLocalRandom.current().nextInt(0, 60);
         return "Минуты: " + minutes + ", секунды: " + seconds;
     }
-
+    @Override
+    public boolean diagnostic() {
+        return ThreadLocalRandom.current().nextInt() % 3 == 0;
+    }
     @Override
     public double maxSpeed() {
         return round(ThreadLocalRandom.current().nextDouble(120, 190));

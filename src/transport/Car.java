@@ -56,6 +56,11 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
+    public boolean diagnostic() {
+        return ThreadLocalRandom.current().nextInt() % 2 == 0;
+    }
+
+    @Override
     public String toString() {
         return "transport.Car{" +
                 "brand='" + getBrand() + '\'' +

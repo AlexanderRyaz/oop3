@@ -5,7 +5,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import static java.lang.Math.round;
 
 public class Bus extends Transport implements Competing {
-private CapacityType capacityType;
+    private CapacityType capacityType;
+
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -41,12 +42,19 @@ private CapacityType capacityType;
     }
 
     @Override
+    public boolean diagnostic() {
+        System.out.println("автобус " + getBrand() + " " + getModel() + " не нуждается в диагностике");
+        return true;
+    }
+
+    @Override
     public double maxSpeed() {
         return round(ThreadLocalRandom.current().nextDouble(110, 180));
     }
+
     @Override
-    public String toString(){
-       return super.toString() +  ", capacityType= " + (capacityType == null ? "данных не достаточно" :
-               capacityType.getCapacityType());
+    public String toString() {
+        return super.toString() + ", capacityType= " + (capacityType == null ? "данных не достаточно" :
+                capacityType.getCapacityType());
     }
 }

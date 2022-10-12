@@ -30,8 +30,12 @@ public  class Driver<T extends Transport> {
         return drivingExperience;
     }
 
-    public void setDriverLicense(boolean driverLicense) {
-        this.driverLicense = driverLicense;
+    public void setDriverLicense(boolean driverLicense)
+    {
+if (!driverLicense){
+    throw new RuntimeException(" у водителя нет прав");
+}
+        this.driverLicense = true;
     }
 
     public void setAuto(T auto) {

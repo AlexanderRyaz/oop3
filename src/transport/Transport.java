@@ -48,7 +48,7 @@ public abstract class Transport {
 
     public abstract void stopDrive();
 
-
+public abstract boolean diagnostic();
     @Override
     public String toString() {
         return "transport.Transport{" +
