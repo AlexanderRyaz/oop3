@@ -7,7 +7,7 @@ public class DriverD extends Driver<Bus> {
 
     @Override
     public void startDrive() {
-        System.out.println("водитель категории Д");
+        System.out.print("водитель категории Д");
         super.startDrive();
     }
 

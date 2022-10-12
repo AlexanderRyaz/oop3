@@ -50,7 +50,7 @@ public  class Driver<T extends Transport> {
     }
 
     public  void startDrive(){
-        System.out.println(" начал движение");
+        System.out.println(" начал движение на автомобиле " + auto.getBrand() + " " + auto.getModel());
     }
 
     public  void stopDrive(){
